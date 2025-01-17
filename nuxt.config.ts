@@ -35,6 +35,7 @@ export default defineNuxtConfig({
     preset: 'vercel-static',
     prerender: {
       routes: ['/sitemap.xml'],
+      failOnError: false,
     },
   },
 
