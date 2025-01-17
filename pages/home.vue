@@ -57,19 +57,10 @@
             <v-row>
               <v-col
                 cols="12"
-                md="6"
+                justify="center"
               >
                 <v-lazy height="100%">
                   <Bio />
-                </v-lazy>
-              </v-col>
-
-              <v-col
-                cols="12"
-                md="6"
-              >
-                <v-lazy height="100%">
-                  <Hobbies />
                 </v-lazy>
               </v-col>
             </v-row>
@@ -176,17 +167,17 @@
   const qualities = [
     {
       icon: 'mdi-account-group',
-      title: 'Klantinteractie',
-      subtitle: 'Vaardigheid in Klantinteractie',
+      title: 'Klantgerichtheid',
+      subtitle: 'Expertise in heldere communicatie',
       description:
-        'IT-termen kunnen complex zijn. Daarom is er een sterke aanpasbaarheid in woordkeuze, om technische concepten in eenvoudige bewoordingen uit te leggen, indien nodig.',
+        'IT-jargon kan overweldigend zijn. Daarom wordt technische informatie op maat gepresenteerd, in duidelijke en begrijpelijke taal. Complexe concepten worden helder en toegankelijk gemaakt, zodat klanten altijd weten waar ze aan toe zijn.',
     },
     {
       icon: 'mdi-fast-forward',
-      title: 'Enthousiasme',
-      subtitle: 'Enthousiasme als Drijfveer',
+      title: 'Gedrevenheid',
+      subtitle: 'Passie als motor voor kwaliteit',
       description:
-        'Bij het beginnen aan een website wordt deze met zorg en aandacht afgemaakt. Het bespreken van designs met collega Jelle is een belangrijk onderdeel van het proces, om zo verschillende perspectieven en ideeën te verkrijgen over de betreffende websites. Het doel is om elke website met trots af te ronden, wetende dat er alles aan is gedaan om een optimaal resultaat te bereiken.',
+        'Elke website wordt met toewijding en oog voor detail ontwikkeld. Samenwerking, zoals brainstormen met collega Jelle, zorgt voor nieuwe inzichten en creatieve oplossingen. Het doel is om elk project met trots op te leveren, met de zekerheid dat het maximale uit het ontwerp is gehaald.',
     },
   ];
 
@@ -309,6 +300,32 @@
       ],
     },
   ];
+
+  useSeoMeta({
+    description:
+      'Portfolio van Timo Cuijpers, webdeveloper uit Best. Bekijk hier zijn projecten en lees meer over zijn carrière.',
+    ogDescription:
+      'Portfolio van Timo Cuijpers, webdeveloper uit Best. Bekijk hier zijn projecten en lees meer over zijn carrière.',
+    ogImage: '/img/Timo.jpeg',
+    twitterTitle: 'Home',
+    twitterDescription:
+      'Portfolio van Timo Cuijpers, webdeveloper uit Best. Bekijk hier zijn projecten en lees meer over zijn carrière.',
+    twitterImage: '/img/Timo.jpeg',
+    twitterCard: 'summary',
+  });
+
+  useHead({
+    htmlAttrs: {
+      lang: 'en',
+    },
+    link: [
+      {
+        rel: 'icon',
+        type: 'image/ico',
+        href: '/favicon.ico',
+      },
+    ],
+  });
 </script>
 
 <style>

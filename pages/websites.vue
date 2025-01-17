@@ -7,8 +7,13 @@
       v-if="$route.meta.isRoot"
       src="/img/WebsitesBackground.jpg"
     >
-      <v-sheet>
-        <div class="text-h2 py-16 text-center">Websites</div>
+      <v-sheet class="pt-16 pb-10">
+        <div class="text-h2 mb-4 text-center">Websites</div>
+        <div class="text-subtitle-1 text-center">
+          Hieronder vind je een overzicht van websites die we hebben ontwikkeld voor klanten en familieleden.
+          <br />
+          Voor applicaties kunnen we je tijdens een gesprek een demonstratie geven.
+        </div>
       </v-sheet>
       <v-divider
         class="mx-auto"
@@ -18,91 +23,93 @@
         class="d-flex flex-wrap mx-auto"
         max-width="2000"
       >
-        <v-sheet
-          v-for="site in sites.filter((site, key) => !!site.show)"
-          :key="site.name"
-          :class="mobile ? 'px-4 py-16' : 'pa-16'"
-          :width="mobile ? '100%' : '50%'"
-        >
-          <v-card
-            color="transparent"
-            elevation="24"
-            height="100%"
-            style="backdrop-filter: blur(20px)"
-            :subtitle="site.url"
-            :title="site.name"
-            :to="{ name: site.name }"
+        <client-only>
+          <v-sheet
+            v-for="site in sites.filter((site, key) => !!site.show)"
+            :key="site.name"
+            :class="mobile ? 'px-4 py-16' : 'pa-16'"
+            :width="mobile ? '100%' : '50%'"
           >
-            <template
-              v-if="site?.archiveUrl"
-              #append
+            <v-card
+              color="transparent"
+              elevation="24"
+              height="100%"
+              style="backdrop-filter: blur(20px)"
+              :subtitle="site.url"
+              :title="site.name"
+              :to="{ name: site.name }"
             >
-              <v-btn
-                append-icon="mdi-history"
-                class="font-weight-bold"
-                text="Archief"
-                :to="{ name: site.name + ' - Archief' }"
-              />
-            </template>
-            <v-card-text>
-              <v-img
-                v-if="site?.imgUrl"
-                aspect-ratio="1.3"
-                class="rounded-lg my-4 elevation-24"
-                cover
-                eager
-                position="relative"
-                :src="site?.imgUrl"
-              />
-              <v-sheet
-                class="d-flex flex-row"
-                position="relative"
+              <template
+                v-if="site?.archiveUrl"
+                #append
               >
+                <v-btn
+                  append-icon="mdi-history"
+                  class="font-weight-bold"
+                  text="Archief"
+                  :to="{ name: site.name + ' - Archief' }"
+                />
+              </template>
+              <v-card-text>
+                <v-img
+                  v-if="site?.imgUrl"
+                  aspect-ratio="1.3"
+                  class="rounded-lg my-4 elevation-24"
+                  cover
+                  eager
+                  position="relative"
+                  :src="site?.imgUrl"
+                />
                 <v-sheet
-                  class="pr-4 d-flex flex-column"
-                  width="50%"
+                  class="d-flex flex-row"
+                  position="relative"
                 >
-                  <v-sheet class="align-self-baseline">
-                    <div class="font-weight-black">Omschrijving</div>
-                    <div>{{ site.description }}</div>
+                  <v-sheet
+                    class="pr-4 d-flex flex-column"
+                    width="50%"
+                  >
+                    <v-sheet class="align-self-baseline">
+                      <div class="font-weight-black">Omschrijving</div>
+                      <div>{{ site.description }}</div>
+                    </v-sheet>
+
+                    <v-sheet
+                      height="100%"
+                      min-height="20"
+                    />
+
+                    <v-sheet>
+                      <div class="font-weight-black">Periode:</div>
+                      <div>{{ site.when }}</div>
+                    </v-sheet>
                   </v-sheet>
+
+                  <v-divider vertical />
 
                   <v-sheet
-                    height="100%"
-                    min-height="20"
-                  />
+                    class="pl-4 text-right d-flex flex-column"
+                    width="50%"
+                  >
+                    <v-sheet>
+                      <div class="font-weight-black">Duur:</div>
+                      <div>{{ site.duration }}</div>
+                    </v-sheet>
 
-                  <v-sheet>
-                    <div class="font-weight-black">Periode:</div>
-                    <div>{{ site.when }}</div>
+                    <v-sheet
+                      height="100%"
+                      min-height="20"
+                    />
+
+                    <v-sheet class="align-self-end">
+                      <div class="font-weight-black">Link:</div>
+                      <div>{{ site.url }}</div>
+                    </v-sheet>
                   </v-sheet>
                 </v-sheet>
-
-                <v-divider vertical />
-
-                <v-sheet
-                  class="pl-4 text-right d-flex flex-column"
-                  width="50%"
-                >
-                  <v-sheet>
-                    <div class="font-weight-black">Duur:</div>
-                    <div>{{ site.duration }}</div>
-                  </v-sheet>
-
-                  <v-sheet
-                    height="100%"
-                    min-height="20"
-                  />
-
-                  <v-sheet class="align-self-end">
-                    <div class="font-weight-black">Link:</div>
-                    <div>{{ site.url }}</div>
-                  </v-sheet>
-                </v-sheet>
-              </v-sheet>
-            </v-card-text>
-          </v-card>
-        </v-sheet>
+              </v-card-text>
+            </v-card>
+          </v-sheet>
+        </client-only>
       </v-sheet>
     </v-parallax>
 
@@ -185,12 +192,24 @@
   const sites = [
     {
       show: true,
+      name: 'Van Gestel Inspecties',
+      url: 'https://www.vangestelinspecties.nl/',
+      // archiveUrl: 'https://van-gestel-inspecties-archive.uit-best.nl/',
+      loaded: ref(false),
+      description:
+        'De website voldeed niet meer aan moderne eisen en is volledig vernieuwd met een focus op eenvoud en gebruiksvriendelijkheid.',
+      duration: '22 uur',
+      when: 'Eind 2024',
+      imgUrl: '/img/van-gestel-inspecties-preview.png',
+    },
+    {
+      show: true,
       name: 'Appeldoorn Riooltechniek',
       url: 'https://appeldoornriooltechniek.nl/',
       archiveUrl: 'https://appeldoorn-archive.uit-best.nl/',
       loaded: ref(false),
       description:
-        'De website is volledig vernieuwd en geoptimaliseerd om beter te presteren in Google. Dankzij het vernieuwde ontwerp en de verbeterde structuur sluit de site nu perfect aan bij de moderne eisen van gebruikers en zoekmachines.',
+        'De website is vernieuwd en geoptimaliseerd voor betere prestaties in Google, met een modern ontwerp en verbeterde structuur.',
       duration: '22 uur',
       when: 'Eind 2024',
       imgUrl: '/img/appeldoorn-riooltechniek-preview-nieuw.png',
@@ -232,6 +251,18 @@
     // Archive
 
     {
+      show: false,
+      name: 'Van Gestel Inspecties - Archief',
+      originalUrl: 'https://www.vangestelinspecties.nl/',
+      url: 'https://van-gestel-inspecties-archive.uit-best.nl/',
+      loaded: ref(false),
+      description:
+        'De website voldeed niet meer aan moderne eisen en is volledig vernieuwd met een focus op eenvoud en gebruiksvriendelijkheid.',
+      duration: '22 uur',
+      when: 'Eind 2024',
+      imgUrl: '/img/van-gestel-inspecties-preview.png',
+    },
+    {
       name: 'DiederIT - Archief',
       show: false,
       url: 'https://diederit-archive.uit-best.nl/',
@@ -250,10 +281,33 @@
       url: 'https://appeldoorn-archive.uit-best.nl/',
       loaded: ref(false),
       description:
-        'De website is volledig vernieuwd en geoptimaliseerd om beter te presteren in Google. Dankzij het vernieuwde ontwerp en de verbeterde structuur sluit de site nu perfect aan bij de moderne eisen van gebruikers en zoekmachines.',
+        'De website is vernieuwd en geoptimaliseerd voor betere prestaties in Google, met een modern ontwerp en verbeterde structuur.',
       duration: '18 uur (exclusief design, exclusief tekst)',
       when: 'Midden 2024',
       imgUrl: '/img/appeldoorn-riooltechniek-preview.png',
     },
   ];
+
+  useSeoMeta({
+    description: 'Bekijk hier een overzicht van de websites die ik heb gemaakt voor klanten en familieleden.',
+    ogDescription: 'Bekijk hier een overzicht van de websites die ik heb gemaakt voor klanten en familieleden.',
+    ogImage: '/img/Timo.jpeg',
+    twitterTitle: 'Websites',
+    twitterDescription: 'Bekijk hier een overzicht van de websites die ik heb gemaakt voor klanten en familieleden.',
+    twitterImage: '/img/Timo.jpeg',
+    twitterCard: 'summary',
+  });
+
+  useHead({
+    htmlAttrs: {
+      lang: 'en',
+    },
+    link: [
+      {
+        rel: 'icon',
+        type: 'image/ico',
+        href: '/favicon.ico',
+      },
+    ],
+  });
 </script>

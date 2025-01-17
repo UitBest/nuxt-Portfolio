@@ -63,7 +63,7 @@
 
         <v-divider />
 
-        <v-list-subheader class="w-100 d-flex justify-center font-weight-bold"> Websites </v-list-subheader>
+        <v-list-subheader class="w-100 d-flex justify-center font-weight-bold text-white"> Websites </v-list-subheader>
 
         <v-divider />
 
@@ -150,6 +150,19 @@
       },
       children: [
         {
+          path: '/van-gestel-inspecties',
+          name: 'Van Gestel Inspecties',
+          meta: {
+            title: 'Van Gestel Inspecties',
+            isRoot: false,
+            sidebar: {
+              icon: 'mdi-magnify',
+              name: 'Van Gestel Inspecties',
+              to: { name: 'Van Gestel Inspecties' },
+            },
+          },
+        },
+        {
           path: '/appeldoorn-riooltechniek',
           name: 'Appeldoorn Riooltechniek',
           meta: {
@@ -199,19 +212,6 @@
               icon: 'mdi-broom',
               name: 'Madje Diensten',
               to: { name: 'Madje Diensten' },
-            },
-          },
-        },
-        {
-          path: '/beauty-education',
-          name: 'Beauty Education',
-          meta: {
-            title: 'Beauty Education',
-            isRoot: false,
-            sidebar: {
-              icon: 'mdi-brush',
-              name: 'Beauty Education',
-              to: { name: 'Beauty Education' },
             },
           },
         },

@@ -35,6 +35,20 @@ export default {
             },
             children: [
                 {
+                    path: '/van-gestel-inspecties',
+                    name: 'Van Gestel Inspecties',
+                    component: Websites,
+                    meta: {
+                        title: 'Van Gestel Inspecties',
+                        isRoot: false,
+                        sidebar: {
+                            icon: 'mdi-magnify',
+                            name: 'Van Gestel Inspecties',
+                            to: { name: 'Van Gestel Inspecties' },
+                        },
+                    },
+                },
+                {
                     path: '/appeldoorn-riooltechniek',
                     name: 'Appeldoorn Riooltechniek',
                     component: Websites,
@@ -108,6 +122,15 @@ export default {
 
                 // Archive
 
+                {
+                    path: '/van-gestel-inspecties-archive',
+                    name: 'Van Gestel Inspecties - Archief',
+                    component: Websites,
+                    meta: {
+                        title: 'Van Gestel Inspecties - Archief',
+                        isRoot: false,
+                    },
+                },
                 {
                     path: '/dieder-it-archive',
                     name: 'DiederIT - Archief',

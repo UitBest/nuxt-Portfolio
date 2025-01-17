@@ -10,7 +10,8 @@ export default defineNuxtConfig({
       meta: [
         {
           name: 'keywords',
-          content: '',
+          content:
+            'Timo Cuijpers, Timo, Cuijpers, Web Developer, Web, Developer, Frontend, Frontend Developer, Frontend Web Developer, Frontend Web, Web Development, Development, Web, Websites, Website, Webdesign, Web Design, Web Designer, Web, Designer, Web hosting, Hosting, Webhosting, Webhost, Website Best, Ontwikkel websites, Ontwikkel, Websites, Website, Best, Uit Best',
         },
       ],
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
