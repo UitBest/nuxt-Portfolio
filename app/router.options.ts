@@ -18,15 +18,15 @@ export default {
                 title: 'Home',
             },
         },
-        {
-            path: '/uit-best',
-            name: 'Uit Best',
-            component: UitBest,
-            meta: {
-                isRoot: true,
-                title: 'Uit Best',
-            },
-        },
+        // {
+        //     path: '/uit-best',
+        //     name: 'Uit Best',
+        //     component: UitBest,
+        //     meta: {
+        //         isRoot: true,
+        //         title: 'Uit Best',
+        //     },
+        // },
         {
           path: '/apps',
             name: 'Apps',
