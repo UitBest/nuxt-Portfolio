@@ -76,7 +76,7 @@ export default {
             },
             children: [
                 {
-                    path: '/van-gestel-inspecties',
+                    path: '/websites/van-gestel-inspecties',
                     name: 'Van Gestel Inspecties',
                     component: Websites,
                     meta: {
@@ -90,7 +90,7 @@ export default {
                     },
                 },
                 {
-                    path: '/appeldoorn-riooltechniek',
+                    path: '/websites/appeldoorn-riooltechniek',
                     name: 'Appeldoorn Riooltechniek',
                     component: Websites,
                     meta: {
@@ -105,7 +105,7 @@ export default {
                     },
                 },
                 {
-                    path: '/dieder-it',
+                    path: '/websites/dieder-it',
                     name: 'DiederIT',
                     component: Websites,
                     meta: {
@@ -119,7 +119,7 @@ export default {
                     },
                 },
                 {
-                    path: '/4torentjes',
+                    path: '/websites/4torentjes',
                     name: '4 Torentjes',
                     component: Websites,
                     meta: {
@@ -133,7 +133,7 @@ export default {
                     },
                 },
                 {
-                    path: '/madje-diensten',
+                    path: '/websites/madje-diensten',
                     name: 'Madje Diensten',
                     component: Websites,
                     meta: {
@@ -146,25 +146,25 @@ export default {
                         },
                     },
                 },
-                {
-                    path: '/beauty-education',
-                    name: 'Beauty Education',
-                    component: Websites,
-                    meta: {
-                        title: 'Beauty Education',
-                        isRoot: false,
-                        sidebar: {
-                            icon: 'mdi-brush',
-                            name: 'Beauty Education',
-                            to: { name: 'Beauty Education' },
-                        },
-                    },
-                },
+                // {
+                //     path: '/websites/beauty-education',
+                //     name: 'Beauty Education',
+                //     component: Websites,
+                //     meta: {
+                //         title: 'Beauty Education',
+                //         isRoot: false,
+                //         sidebar: {
+                //             icon: 'mdi-brush',
+                //             name: 'Beauty Education',
+                //             to: { name: 'Beauty Education' },
+                //         },
+                //     },
+                // },
 
                 // Archive
 
                 {
-                    path: '/van-gestel-inspecties-archive',
+                    path: '/websites/van-gestel-inspecties-archive',
                     name: 'Van Gestel Inspecties - Archief',
                     component: Websites,
                     meta: {
@@ -173,7 +173,7 @@ export default {
                     },
                 },
                 {
-                    path: '/dieder-it-archive',
+                    path: '/websites/dieder-it-archive',
                     name: 'DiederIT - Archief',
                     component: Websites,
                     meta: {
@@ -182,7 +182,7 @@ export default {
                     },
                 },
                 {
-                    path: '/appeldoorn-riooltechniek-archive',
+                    path: '/websites/appeldoorn-riooltechniek-archive',
                     name: 'Appeldoorn Riooltechniek - Archief',
                     component: Websites,
                     meta: {

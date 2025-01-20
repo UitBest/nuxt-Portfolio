@@ -60,7 +60,6 @@ export default defineNuxtConfig({
       const subRoutes = routerOptions
         .routes([])
         .map((route) => route.children)
-        .flat()
         .map((route) => route?.path);
       return [...routes, ...subRoutes];
     },
