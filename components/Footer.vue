@@ -1,8 +1,5 @@
 <template>
-  <v-container
-    :class="mobile ? 'pa-4' : 'pa-10'"
-    fluid
-  >
+  <v-container>
     <v-row>
       <v-col
         cols="12"
