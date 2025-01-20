@@ -189,10 +189,24 @@
       link: 'https://www.summacollege.nl/over-summa/nieuws/timo-is-al-ondernemer-in-de-ict',
     },
     {
+      title: 'SnapshotApp',
+      period: 'Mei 2024',
+      image: '/img/snapshot-app-preview.png',
+      subtitle: 'Inspectie tool voor NFB',
+      to: { name: 'Snapshot App' },
+    },
+    {
+      title: 'CRM Applicatie Framazon',
+      period: 'Juni 2024',
+      image: '/img/framazon-crm-preview.png',
+      subtitle: 'Klantrelatiebeheer en boekhouding',
+      to: { name: 'Framazon CRM' },
+    },
+    {
       title: 'Appeldoorn Riooltechniek',
       period: 'Augustus 2024',
       image: '/img/appeldoorn-riooltechniek-preview.png',
-      subtitle: 'Wordpress to Vue',
+      subtitle: 'Wordpress naar Vue',
       to: { name: 'Appeldoorn Riooltechniek - Archief' },
     },
     {
@@ -208,6 +222,13 @@
       image: '/img/appeldoorn-riooltechniek-preview-nieuw.png',
       subtitle: 'Redesign / Optimalisatie / SEO',
       to: { name: 'Appeldoorn Riooltechniek - Archief' },
+    },
+    {
+      title: 'Van Gestel Inspecties',
+      period: 'November 2024',
+      image: '/img/van-gestel-inspecties-preview.png',
+      subtitle: 'Redesign / SEO',
+      to: { name: 'Van Gestel Inspecties' },
     },
   ];
 

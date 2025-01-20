@@ -1,6 +1,6 @@
 <template>
   <v-card
-    class="mx-auto"
+    class="mx-auto pb-4"
     color="transparent"
     elevation="20"
     :href="milestone?.link"
@@ -22,6 +22,9 @@
         :src="milestone.image"
       />
     </v-card-text>
+    <v-card-subtitle>
+      {{ milestone.subtitle }}
+    </v-card-subtitle>
   </v-card>
 </template>
 

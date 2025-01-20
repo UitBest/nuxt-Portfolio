@@ -6,7 +6,7 @@
     <v-row>
       <v-col
         cols="12"
-        md="4"
+        md="6"
       >
         <v-btn
           v-if="mobile"
@@ -58,7 +58,7 @@
       <v-spacer />
       <v-col
         cols="12"
-        md="4"
+        md="6"
       >
         <v-sheet
           class="d-flex justify-center"
@@ -123,14 +123,8 @@
           </div>
         </div>
       </v-col>
-      <v-divider
-        :class="mobile && 'mb-10'"
-        :vertical="!mobile"
-      />
-      <v-col
-        cols="12"
-        md="4"
-      >
+      <v-divider />
+      <v-col cols="12">
         <v-sheet height="50">
           <div
             class="text-h6 text-center"
@@ -139,50 +133,81 @@
             Pagina's
           </div>
         </v-sheet>
-        <div
-          class="text-body-1 mt-4 d-flex justify-space-between"
-          :class="darkColor ? ' text-primary' : ' text-dark'"
-        >
-          <div>Portfolio</div>
-          <div>Websites</div>
-        </div>
-        <v-divider class="mb-2 mt-1" />
-        <div class="text-body-2 d-flex justify-space-between">
-          <div>
-            <a
-              :class="darkColor ? 'text-white' : 'text-dark'"
-              href="/home"
-              >Home</a
-            ><br />
-            <a
-              :class="darkColor ? 'text-white' : 'text-dark'"
-              href="/uit-best"
-              >Uit Best</a
-            ><br />
-            <a
-              :class="darkColor ? 'text-white' : 'text-dark'"
-              href="/websites"
-              >Websites</a
-            ><br />
-          </div>
-          <div class="text-end">
-            <a
-              :class="darkColor ? 'text-white' : 'text-dark'"
-              href="/websites/4torentjes"
-              >4 Torentjes</a
-            ><br />
-            <a
-              :class="darkColor ? 'text-white' : 'text-dark'"
-              href="/websites/beauty-education"
-              >Beauty Education</a
-            ><br />
-            <a
-              :class="darkColor ? 'text-white' : 'text-dark'"
-              href="/websites/madje-diensten"
-              >Madje Diensten</a
-            ><br />
-          </div>
-        </div>
+        <v-container class="pa-0">
+          <v-row
+            class="text-body-1 mt-1"
+            :class="darkColor ? ' text-primary' : ' text-dark'"
+            justify="space-between"
+          >
+            <v-col
+              cols="12"
+              md="4"
+            >
+              Portfolio
+              <br />
+              <NuxtLink
+                :class="darkColor ? 'text-white' : 'text-dark'"
+                href="/home"
+              >
+                Home
+              </NuxtLink>
+              <br />
+              <NuxtLink
+                :class="darkColor ? 'text-white' : 'text-dark'"
+                href="/uit-best"
+              >
+                Uit Best
+              </NuxtLink>
+              <br />
+              <NuxtLink
+                :class="darkColor ? 'text-white' : 'text-dark'"
+                href="/websites"
+              >
+                Websites </NuxtLink
+              ><br />
+            </v-col>
+            <v-col
+              class="text-md-center text-truncate"
+              cols="12"
+              md="4"
+            >
+              Apps
+              <br />
+              <template
+                v-for="(app, key) in apps"
+                :key="key"
+              >
+                <NuxtLink
+                  :class="darkColor ? 'text-white' : 'text-dark'"
+                  :href="app.to"
+                >
+                  {{ app.name }}
+                </NuxtLink>
+                <br />
+              </template>
+            </v-col>
+            <v-col
+              class="text-md-end text-truncate"
+              cols="12"
+              md="4"
+            >
+              Websites
+              <br />
+              <template
+                v-for="(website, key) in websites"
+                :key="key"
+              >
+                <NuxtLink
+                  :class="darkColor ? 'text-white' : 'text-dark'"
+                  :href="website.to"
+                >
+                  {{ website.name }}
+                </NuxtLink>
+                <br />
+              </template>
+            </v-col>
+          </v-row>
+        </v-container>
       </v-col>
     </v-row>
   </v-container>
@@ -191,6 +216,11 @@
 <script setup>
   import { computed } from 'vue';
   import { useDisplay } from 'vuetify';
+
+  defineProps({
+    apps: Array,
+    websites: Array,
+  });
 
   const darkColor = defineModel('darkColor', {
     default: true,

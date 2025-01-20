@@ -29,7 +29,11 @@
       </div>
       <br />
 
-      <NuxtLink to="/websites">Bekijk websites</NuxtLink>
+      <NuxtLink :href="{ name: 'Apps' }">Bekijk apps</NuxtLink>
+
+      <br />
+
+      <NuxtLink :href="{ name: 'Websites' }">Bekijk websites</NuxtLink>
 
       <br />
       <br />
@@ -65,13 +69,14 @@
       <div>
         Na het versneld afronden van de opleiding en een leerzame stageperiode, werd de stap gezet om een eigen
         onderneming, 'Uit Best', op te richten. Deze kans deed zich voor in een kamer van
-        <a
+        <NuxtLink
           class="text-white"
+          external
           href="https://www.dieder.it/"
           target="_blank"
         >
           mijn vaders bedrijf
-        </a>
+        </NuxtLink>
         . Dankbaarheid wordt uitgesproken voor de mogelijkheid en de waardevolle adviezen over het runnen van een eigen
         bedrijf.
       </div>

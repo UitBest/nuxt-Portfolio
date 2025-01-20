@@ -63,7 +63,22 @@
 
         <v-divider />
 
-        <v-list-subheader class="w-100 d-flex justify-center font-weight-bold text-white"> Websites </v-list-subheader>
+        <v-list-subheader class="w-100 d-flex justify-center font-weight-bold text-white"> Apps </v-list-subheader>
+
+        <v-divider />
+
+        <v-list-item
+          v-for="(item, key) in apps"
+          :key="key"
+          :prepend-icon="item.icon"
+          :title="item.name"
+          :to="item.to"
+          :value="item.name"
+        />
+
+        <v-divider />
+
+        <v-list-subheader class="w-100 d-flex justify-center font-weight-bold text-white"> Sites </v-list-subheader>
 
         <v-divider />
 
@@ -98,7 +113,11 @@
       </keep-alive>
 
       <v-footer :color="darkColor ? 'dark' : 'white'">
-        <Footer v-model:dark-color="darkColor" />
+        <Footer
+          v-model:dark-color="darkColor"
+          :apps="apps"
+          :websites="websites"
+        />
       </v-footer>
     </v-main>
 
@@ -142,6 +161,42 @@
       },
     },
     {
+      path: '/apps',
+      name: 'Apps',
+      meta: {
+        isRoot: true,
+        title: 'Apps',
+      },
+      children: [
+        {
+          path: '/framazon',
+          name: 'Framazon CRM',
+          meta: {
+            title: 'Framazon CRM',
+            isRoot: false,
+            sidebar: {
+              icon: 'mdi-book-outline',
+              name: 'Framazon CRM',
+              to: { name: 'Framazon CRM' },
+            },
+          },
+        },
+        {
+          path: '/apps/snapshot-app',
+          name: 'Snapshot App',
+          meta: {
+            isRoot: false,
+            title: 'Snapshot App',
+            sidebar: {
+              icon: 'mdi-camera-outline',
+              name: 'Snapshot App',
+              to: { name: 'Snapshot App' },
+            },
+          },
+        },
+      ],
+    },
+    {
       path: '/websites',
       name: 'Websites',
       meta: {
@@ -170,7 +225,7 @@
             title: 'Appeldoorn Riooltechniek',
             url: 'https://appeldoornriooltechniek.nl/',
             sidebar: {
-              icon: 'mdi-toolbox',
+              icon: 'mdi-toolbox-outline',
               name: 'Appeldoorn Riooltechniek',
               to: { name: 'Appeldoorn Riooltechniek' },
             },
@@ -243,6 +298,9 @@
   const showWebsites = ref(false);
   const websites = ref([]);
 
+  const showApps = ref(false);
+  const apps = ref([]);
+
   const route = ref();
 
   const showProfileOverlay = ref(false);
@@ -257,14 +315,19 @@
       name: 'Home',
       to: { name: 'Home' },
     },
+    // {
+    //   icon: 'mdi-office-building',
+    //   name: 'Uit Best',
+    //   to: { name: 'Uit Best' },
+    // },
     {
-      icon: 'mdi-office-building',
-      name: 'Uit Best',
-      to: { name: 'Uit Best' },
+      icon: 'mdi-apps',
+      name: 'Apps',
+      to: { name: 'Apps' },
     },
     {
       icon: 'mdi-web',
-      name: 'Website overzicht',
+      name: 'Sites',
       to: { name: 'Websites' },
     },
   ];
@@ -272,6 +335,10 @@
   watch(
     route,
     (newRoute) => {
+      if (newRoute?.path === '/apps') {
+        showApps.value = true;
+      }
+
       if (newRoute?.path === '/websites') {
         showWebsites.value = true;
       }
@@ -288,7 +355,14 @@
   );
 
   onMounted(() => {
+    const appsRoute = routes.find((route) => route.name === 'Apps');
     const websitesRoute = routes.find((route) => route.name === 'Websites');
+
+    appsRoute.children.forEach((app) => {
+      if (app.meta?.sidebar) {
+        apps.value.push(app.meta.sidebar);
+      }
+    });
 
     websitesRoute.children.forEach((website) => {
       if (website.meta?.sidebar) {

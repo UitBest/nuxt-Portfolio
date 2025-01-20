@@ -1,9 +1,11 @@
 import type { RouterConfig } from '@nuxt/schema'
 
-
 const Home = () => import('~/pages/home.vue');
 const UitBest = () => import('~/pages/uit-best.vue');
+const Apps = () => import('~/pages/apps.vue');
 const Websites = () => import('~/pages/websites.vue');
+const FramazonCRM = () => import('~/pages/app-previews/framazon-crm.vue');
+const SnapshotApp = () => import('~/pages/app-previews/snapshot-app.vue');
 
 export default {
     routes: (_routes) => [
@@ -24,6 +26,45 @@ export default {
                 isRoot: true,
                 title: 'Uit Best',
             },
+        },
+        {
+          path: '/apps',
+            name: 'Apps',
+            component: Apps,
+            meta: {
+              isRoot: true,
+                title: 'Apps',
+            },
+            children: [
+                {
+                    path: '/apps/framazon',
+                    name: 'Framazon CRM',
+                    component: FramazonCRM,
+                    meta: {
+                        isRoot: false,
+                        title: 'Framazon CRM',
+                        sidebar: {
+                            icon: 'mdi-cart',
+                            name: 'Framazon CRM',
+                            to: { name: 'Framazon CRM' },
+                        },
+                    }
+                },
+                {
+                    path: '/apps/snapshot-app',
+                    name: 'Snapshot App',
+                    component: SnapshotApp,
+                    meta: {
+                        isRoot: false,
+                        title: 'Snapshot App',
+                        sidebar: {
+                            icon: 'mdi-camera',
+                            name: 'Snapshot App',
+                            to: { name: 'Snapshot App' },
+                        },
+                    },
+                },
+            ]
         },
         {
             path: '/websites',
