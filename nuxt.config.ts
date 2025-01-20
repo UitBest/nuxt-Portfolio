@@ -57,10 +57,11 @@ export default defineNuxtConfig({
     },
     urls: () => {
       const routes = routerOptions.routes([]).map((route) => route?.path);
+
       const subRoutes = routerOptions
         .routes([])
-        .map((route) => route.children)
-        .map((route) => route?.path);
+        .flatMap((route) => (route.children ? route.children.map((child) => child?.path) : []));
+
       return [...routes, ...subRoutes];
     },
     excludeAppSources: true,
