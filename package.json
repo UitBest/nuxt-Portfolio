@@ -13,6 +13,7 @@
     "@mdi/font": "^7.4.47",
     "@nuxtjs/seo": "^2.0.0-rc.23",
     "@nuxtjs/sitemap": "^6.1.5",
+    "@vercel/analytics": "^1.4.1",
     "nuxt": "^3.14.0",
     "redirect-ssl": "^3.0.0",
     "vue": "latest",

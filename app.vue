@@ -1,11 +1,10 @@
 <template>
   <NuxtLayout>
     <NuxtPage />
+    <Analytics />
   </NuxtLayout>
 </template>
 
-<script setup lang="ts">
+<script setup>
+  import { Analytics } from '@vercel/analytics/nuxt';
 </script>
-
-<style>
-</style>
