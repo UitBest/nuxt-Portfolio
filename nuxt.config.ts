@@ -56,7 +56,13 @@ export default defineNuxtConfig({
       lastmod: new Date().toISOString(),
     },
     urls: () => {
-      return routerOptions.routes([]).map((route) => route.path);
+      const routes = routerOptions.routes([]).map((route) => route.path);
+      const subRoutes = routerOptions
+        .routes([])
+        .map((route) => route.children)
+        .flat()
+        .map((route) => route.path);
+      return [...routes, ...subRoutes];
     },
     excludeAppSources: true,
   },
