@@ -61,6 +61,11 @@ export default defineNuxtConfig({
     excludeAppSources: true,
   },
 
+  site: {
+    url: 'https://timo.uit.best',
+    name: 'Timo Cuijpers | Portfolio',
+  },
+
   vite: {
     vue: {
       template: {
